@@ -20,27 +20,22 @@ import java.util.List;
 public class PersonMappingService {
     private final ModelMapper personMapper = new ModelMapper();
 
+    public PersonMappingService(){
+        this.personMapper.addMappings(personEntityPersonPojoPropertyMap);
+        this.personMapper.addMappings(personPojoPersonEntityPropertyMap);
+    }
+
     private PropertyMap<PersonEntity, PersonPojo> personEntityPersonPojoPropertyMap = new PropertyMap<PersonEntity, PersonPojo>() {
         @Override
         protected void configure() {
-            using(new Converter<byte[], List>() {
-                @Override
-                public List convert(MappingContext<byte[], List> mappingContext) {
-                    return mappingContext.getSource() != null ? new JSONArray(new String(mappingContext.getSource())).toList() : new ArrayList();
-                }
-            }).map(source.getHoobies(), destination.getHobbies());
+            using((Converter<byte[], List>) mappingContext -> mappingContext.getSource() != null ? new JSONArray(new String(mappingContext.getSource())).toList() : new ArrayList()).map(source.getHobbies(), destination.getHobbies());
         }
     };
 
     private PropertyMap<PersonPojo, PersonEntity> personPojoPersonEntityPropertyMap = new PropertyMap<PersonPojo, PersonEntity>() {
         @Override
         protected void configure() {
-            using(new Converter<List, byte[]>() {
-                @Override
-                public byte[] convert(MappingContext<List, byte[]> mappingContext) {
-                    return mappingContext.getSource() != null ? new JSONArray(mappingContext.getSource()).toString().getBytes() : null;
-                }
-            });
+            using((Converter<List, byte[]>) mappingContext -> mappingContext.getSource() != null ? new JSONArray(mappingContext.getSource()).toString().getBytes() : null).map(source.getHobbies(), destination.getHobbies());
         }
     };
 

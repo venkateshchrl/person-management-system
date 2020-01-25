@@ -10,6 +10,10 @@ public class PersonPredicates {
         return QPersonEntity.personEntity.firstName.equalsIgnoreCase(firstName);
     }
 
+    public static BooleanExpression withNoFilter(){
+        return QPersonEntity.personEntity.id.ne("");
+    }
+
     public static BooleanExpression withLastName(String lastName){
         if(lastName == null)
             return null;

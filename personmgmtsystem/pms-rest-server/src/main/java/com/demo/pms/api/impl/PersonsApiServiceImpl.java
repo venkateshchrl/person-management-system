@@ -4,9 +4,8 @@ package com.demo.pms.api.impl;
 import com.demo.pms.api.mappers.PersonDTOMappingService;
 import com.demo.pms.constants.Codes;
 import com.demo.pms.dto.PersonDTO;
-import com.demo.pms.gen.api.ApiResponseMessage;
 import com.demo.pms.gen.api.NotFoundException;
-import com.demo.pms.gen.api.PersonsApiService;
+import com.demo.pms.gen.api.PersonsApi;
 import com.demo.pms.gen.model.APIResponseResult;
 import com.demo.pms.gen.model.ModelAPIResponse;
 import com.demo.pms.gen.model.Person;
@@ -23,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-01-19T07:43:12.012Z[GMT]")public class PersonsApiServiceImpl extends PersonsApiService {
+@javax.annotation.Generated(value = "io.swagger.codegen.v3.generators.java.JavaJerseyServerCodegen", date = "2020-01-19T07:43:12.012Z[GMT]")public class PersonsApiServiceImpl implements PersonsApi {
     @Autowired
     private PersonCreateController personCreateController;
     @Autowired
@@ -36,6 +35,10 @@ import java.util.Map;
     private PersonDeleteController personDeleteController;
     @Autowired
     private PersonDTOMappingService personDTOMappingService;
+
+    public PersonsApiServiceImpl(){
+        super();
+    }
 
     @Override
     public Response addPerson(Person body, SecurityContext securityContext) throws NotFoundException {

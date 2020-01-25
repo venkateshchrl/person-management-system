@@ -75,7 +75,7 @@ public class PersonUpdateService {
             personEntity.setFavouriteColor(personDto.getFavouriteColor());
         }
         if(personDto.getHobbies() != null && !personDto.getHobbies().isEmpty()){
-            personEntity.setHoobies(new JSONArray(personDto.getHobbies()).toString().getBytes());
+            personEntity.setHobbies(new JSONArray(personDto.getHobbies()).toString().getBytes());
         }
         return personEntity;
     }

@@ -16,7 +16,7 @@ public class PersonPredicateBuilder {
 
     public Predicate build(){
         if(filters.size() == 0){
-            return null;
+            return PersonPredicates.withNoFilter();
         }
         BooleanBuilder result = new BooleanBuilder();
         for(String filter: filters.keySet()){

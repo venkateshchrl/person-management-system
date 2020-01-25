@@ -51,5 +51,5 @@ public class PersonEntity {
     private String favouriteColor;
 
     @Column(name = "hobbies", updatable = true, nullable = false)
-    private byte[] hoobies;
+    private byte[] hobbies;
 }

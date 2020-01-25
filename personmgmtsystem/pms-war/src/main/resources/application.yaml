@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: personmgmtsystem
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
+#    hibernate:
+#      ddl-auto: none
+#  datasource:
+#    url: jdbc:h2:file:~/test
+#    username: sa
+#    password:
+#    driverClassName: org.h2.Driver
+#  flyway:
+#    enabled: true
+
+logging:
+  level:
+    root: INFO
+    org.springframework: DEBUG
+    org.glassfish.jersey: INFO
+    org.reflections: ERROR
+    org.hibernate: INFO
+    org.flywaydb: INFO
