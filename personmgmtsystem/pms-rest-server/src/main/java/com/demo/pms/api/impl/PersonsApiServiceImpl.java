@@ -65,8 +65,8 @@ import java.util.Map;
     public Response getPerson(String personid, SecurityContext securityContext) throws NotFoundException {
         PersonPojo personPojo = personDetailsController.fetchPersonDetails(personid);
         return Response.ok(new ModelAPIResponse()
-                .code(Codes.PERSON_DETAILS_DELETE_SUCCESS_CODE)
-                .message(Codes.PERSON_DETAILS_DELETE_SUCCESS_MSG)
+                .code(Codes.PERSON_DETAILS_RETRIEVAL_SUCCESS_CODE)
+                .message(Codes.PERSON_DETAILS_RETRIEVAL_SUCCESS_MSG)
                 .result(new APIResponseResult()
                         .data(personPojo)))
                 .build();
