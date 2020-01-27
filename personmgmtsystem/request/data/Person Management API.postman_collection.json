@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "fa9bc4a9-281b-494d-9c41-095c407a9c5b",
+		"name": "Person Management API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Kiran\",\n  \"lastName\": \"S\",\n  \"age\": 26,\n  \"gender\": \"Male\",\n  \"favouriteColor\": \"Red\",\n  \"hobbies\": [\n    \"Cricket\",\n    \"Movies\"\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Persons List",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/persons",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Persons Details By ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/persons/d33027c6-5240-4237-8e5b-e2acde9e4a5e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persons",
+						"d33027c6-5240-4237-8e5b-e2acde9e4a5e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Persons Details By ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"firstName\": \"Kiran\",\n  \"lastName\": \"Sathiraju\",\n  \"age\": 26,\n  \"gender\": \"Male\",\n  \"favouriteColor\": \"Red\",\n  \"hobbies\": [\n    \"Cricket\",\n    \"Movies\"\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/persons/d33027c6-5240-4237-8e5b-e2acde9e4a5e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persons",
+						"d33027c6-5240-4237-8e5b-e2acde9e4a5e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Persons Details By IDs",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/persons/5e8588eb-0db8-44c1-ba66-c5ae393ad874,d2c7103d-1369-48d0-8fe4-b60c2a2d59bf",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"persons",
+						"5e8588eb-0db8-44c1-ba66-c5ae393ad874,d2c7103d-1369-48d0-8fe4-b60c2a2d59bf"
+					]
+				},
+				"description": "API deletes the persons from database. Can be single or multiple ids as comma seperated"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
